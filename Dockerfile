@@ -6,7 +6,9 @@ COPY package.json yarn.lock ./
 COPY .yarn .yarn
 # COPY .yarnrc.yml .
 
-RUN yarn install
+RUN yarn config set registry https://registry.npmjs.org \
+  && yarn install --frozen-lockfile
+
 
 COPY . .
 
