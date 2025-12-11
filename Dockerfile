@@ -1,4 +1,4 @@
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -6,9 +6,7 @@ COPY package.json yarn.lock ./
 COPY .yarn .yarn
 # COPY .yarnrc.yml .
 
-RUN yarn config set registry https://registry.npmjs.org \
-  && yarn install --frozen-lockfile
-
+RUN yarn install
 
 COPY . .
 
