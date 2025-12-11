@@ -2,8 +2,6 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-RUN corepack enable
-
 COPY package.json yarn.lock ./
 COPY .yarn .yarn
 # COPY .yarnrc.yml .
